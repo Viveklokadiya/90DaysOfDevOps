@@ -1,0 +1,17 @@
+server:
+  name: myserver
+  ip: 192.168.0.1
+  port: 8080
+  startup_script: |
+    echo "Starting server..."
+    sudo systemctl start myserver.service
+database:
+  host: localhost
+  name: mydatabase
+  credentials:
+    username: admin
+    password: secret
+  startup_script: >
+    echo "Connecting to database..."
+    mysql -u admin -psecret -h localhost mydatabase
+

@@ -1,0 +1,11 @@
+name: vivek
+age: 21
+gender: male
+occupation: software engineer
+tools:
+  - docekr
+  - kubernetes
+hobbies:
+  - coding
+  - gaming
+  - traveling
