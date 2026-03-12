@@ -1,0 +1,25 @@
+name: Hello Workflow
+
+on: push
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          repository: Viveklokadiya/github-actions-practice
+      - name: Print Current date & time
+        run: date
+
+      - name: Show branch name
+        run: 'echo "Branch: ${{ github.ref_name }}"'
+      
+      - name: list files in the repository
+        run: ls -la
+
+      - name: Print the runner's operating system
+        run: 'echo "Runner OS: ${{ runner.os }}"'
+

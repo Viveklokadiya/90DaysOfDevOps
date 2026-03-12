@@ -1,0 +1,17 @@
+name: triggrs
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  pr-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show Branch name
+        run: 'echo "Branch: ${{ github.ref_name }}"'
