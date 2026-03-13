@@ -1,0 +1,32 @@
+name: github-hosted-runners
+
+on:
+  push : 
+    branches:
+      - main
+jobs:
+  github-Windows-runners:
+    runs-on: windows-latest
+    steps:
+      - name: Show OS, Hostname and User
+        run: |
+          echo "OS: ${{ runner.os }}"
+          echo "Hostname: ${{ runner.hostname }}"
+          echo "User: ${{ runner.user }}"
+  github-Ubuntu-runners:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show OS, Hostname and User
+        run: |
+          echo "OS: ${{ runner.os }}"
+          echo "Hostname: ${{ runner.hostname }}"
+          echo "User: ${{ runner.user }}"
+  github-MacOS-runners:
+    runs-on: macos-latest
+    steps:
+      - name: Show OS, Hostname and User
+        run: |
+          echo "OS: ${{ runner.os }}"
+          echo "Hostname: ${{ runner.hostname }}"
+          echo "User: ${{ runner.user }}"
+  

@@ -1,0 +1,35 @@
+name: deploy-site
+
+on:
+  push:
+    branches:
+      - for-test
+
+jobs:
+  deploy:
+    runs-on: ec2-runner
+    steps:
+      - name: Deploy to EC2
+        run: echo "Deploying to EC2 instance..."
+      - name: Show OS, Hostname and User
+        run: |
+          echo "OS: ${{ runner.os }}"
+          echo "Hostname: ${{ runner.hostname }}"
+          echo "User: ${{ runner.user }}"
+      # Add your deployment commands here, e.g., deploy ststic html css site to ec2
+      - name: checkout repository
+        uses: actions/checkout@v2
+        with:
+          repository: Viveklokadiya/github-actions-practice
+      - name: change branch
+        run: git checkout for-test
+    #  install nginx and copy files to nginx html directory
+      - name: Install Nginx and Deploy Site
+        run: |
+          sudo apt update
+          sudo apt install -y nginx
+          sudo cp -r * /var/www/html/
+          sudo systemctl restart nginx
+      - name: Verify Deployment
+        run: curl -I http://localhost
+      
